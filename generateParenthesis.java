@@ -62,7 +62,7 @@ public class Solution {
     }
 
     public static void solve(String current, int n, int open,int close) {
-        if (currlen == 2 * n) {
+        if (current.length() == 2 * n) {
                 res.add(current);
             }
             return;
