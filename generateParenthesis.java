@@ -55,13 +55,14 @@ public class Solution {
         System.out.println(res);
         sc.close();
     }
-    private List<String> res = new ArrayList<>();
+    
     public static List<String> generateParenthesis(int n) {
-        solve("", n, 0, 0);
+         List<String> res = new ArrayList<>();
+        solve("", n, 0, 0,res);
         return res;
     }
 
-    public static void solve(String current, int n, int open,int close) {
+    public static void solve(String current, int n, int open,int close,List<String> res) {
         if (current.length() == 2 * n) {
                 res.add(current);
             }
@@ -70,13 +71,13 @@ public class Solution {
        if(open<n)
        {
           current += "(";
-          solve(current, n, open+1, currlen + 1);
+          solve(current, n, open+1, currlen + 1,res);
           current = current.substring(0, current.length() - 1);
        }
         if(open>close)
         {
           current += ")";
-          solve(current, n, open, close + 1);
+          solve(current, n, open, close + 1,res);
           current = current.substring(0, current.length() - 1);
         }
     } 
